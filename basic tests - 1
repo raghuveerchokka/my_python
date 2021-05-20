@@ -1,0 +1,40 @@
+#New program - Guess the number
+
+#pick random
+from random import randint
+my_guess = randint(1,100)
+count = 0
+
+#game
+while guess != my_guess :
+
+    #check the number of times one guesses
+    count += 1
+    
+    #what was the last guess?
+    last_guess = guess
+    
+    #seek input from person
+    #input is always string. convert to int
+    guess = int(input('Guess the number: '))
+    
+
+    if guess == my_guess:
+        print(f"Congratulations. You have guessed {guess} in {count} guess!!!")
+        break
+
+    if guess < 1 or guess > 100 :
+        print("OUT OF BOUNDS!!!")
+        continue
+    
+    if count == 1:
+        if abs(guess - my_guess) <= 10 :
+            print("WARM!")
+        else : print("COLD!")    
+
+    else :
+        if abs(guess - my_guess) < abs(guess - last_guess):
+            print("WARMER!!")
+        else : print("COLDER!!")
+        
+    
