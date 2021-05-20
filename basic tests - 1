@@ -33,8 +33,9 @@ while guess != my_guess :
         else : print("COLD!")    
 
     else :
-        if abs(guess - my_guess) < abs(guess - last_guess):
+        if abs(guess - my_guess) < abs(my_guess - last_guess):
             print("WARMER!!")
         else : print("COLDER!!")
+        
         
     
