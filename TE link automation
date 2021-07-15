@@ -1,0 +1,44 @@
+from openpyxl import Workbook
+from openpyxl import load_workbook
+
+# open excel files
+wb_main = load_workbook('Running Train List of Waltair Division.xlsx')
+
+# understand the weekly data of trains
+#print(wb_main.sheetnames)
+#for sheet in wb_main:
+#    print(sheet.title)
+
+# assign a day
+wb_sun = wb_main["SUN"]
+
+# how to access a cell/value
+#wb_sun['A1'].value
+
+# TE - create an excel
+wb_out = Workbook()
+ws_out = wb_out.active
+ws_out.title = wb_sun["F1"].value
+ws_out["A1"] = "TE Party Number"
+ws_out["B1"] = "Train"
+ws_out["C1"] = "From Station"
+ws_out["D1"] = "Departure"
+ws_out["E1"] = "To Station"
+ws_out["F1"] = "Arrival"
+
+
+
+
+# stations start at "F"
+# loop through "F" to find out trains which stop at "F"
+  
+for train_time in wb_sun["F"]:
+    #    print (train_time.value)
+    while train_time.value != "-":
+        # print(train_time.value)
+        
+        break
+      
+      
+# Save the output file
+wb_out.save(filename="TE_links.xlsx")
